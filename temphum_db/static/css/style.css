@@ -1,0 +1,28 @@
+.dot_online {
+  height: 15px;
+  width: 15px;
+  background-color: green;
+  border-radius: 50%;
+  display: inline-flex;
+}
+.dot_blink {
+  height: 15px;
+  width: 15px;
+  background-color: lightgreen;
+  border-radius: 50%;
+  display: inline-flex;
+}
+
+.dot_offline {
+  height: 15px;
+  width: 15px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-flex;
+}
+
+.img-fluid-new {
+  width: 50%;
+  height: 50%;
+}
+

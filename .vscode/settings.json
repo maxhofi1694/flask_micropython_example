@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "db",
+            "database": "${workspaceFolder:temphum_db}/temphum_db/data.db"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

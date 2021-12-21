@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% block content %}
+<!-- javascript funktion, welche die tabelle erzeugt-->
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('#test').DataTable(
+      {
+        "pageLength": 50,
+        "searching": false,
+        "lengthChange": false,
+        "order": [[0, 'desc']],
+        columns: [
+          {
+            data: '#'
+          },
+          {
+            data: 'Temperatur',
+            render: $.fn.dataTable.render.number(',', '.', 2, '', '°C')
+          },
+          {
+            data: 'Rel.Feuchte',
+            render: $.fn.dataTable.render.number(',', '.', 2, '', '%')
+          },
+          {
+            data: 'Datum',
+            render: $.fn.dataTable.render.moment('YYYY-MM-DD HH:mm:ss', 'HH:mm:ss DD.MM.YYYY'),
+
+          }
+        ],
+        columnDefs: [
+          {
+            targets: [0, 1, 2, 3],
+            className: 'dt-center'
+          }
+        ]
+      }
+    );
+  });
+</script>
+
+
+
+<div class="col">
+  <h1 class="text-center">Daten</h1>
+</div>
+
+
+<div class="container d-none d-sm-block" style="padding-bottom: 5px;">
+  <div class="row">
+    <div class="col-md-12" style="max-height: auto;">
+
+
+      <table id="test" class="display" cellspacing="0" width="100%"> <!-- grundstruktur der tabelle-->
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Temperatur</th>
+            <th scope="col">Feuchte</th>
+            <th scope="col">Datum</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for data in all_data %} <!-- man iteriert hier über alle werte die python für die tabelle vorgesehen hat-->
+          <tr>
+            <th scope="row">{{data.id}}</th>
+            <td>{{data.temp}}</td>
+            <td>{{data.hum}}</td>
+            <td>{{data.reading_time.strftime('%Y-%m-%d %H:%M:%S')}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock content %}

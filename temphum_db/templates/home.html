@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- Start: Mobile Hum -->
+<div class="container" style="padding-bottom: 5px;"> <!-- die box, welche die temperatur anzeigt-->
+
+    <div class="col">
+        <h1 class="text-center">Aktuelle Daten:</h1>
+    </div>
+    <div class="row ">
+        <div class="col-md-6" style="padding-top: 5px;">
+            <!-- Start: Card Primary  Temperature-->
+            <div class="card shadow border-start-primary py-2">
+                <div class="card-body">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col me-2">
+                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span>Temperatur</span></div>
+                            <div class="text-dark fw-bold h5 mb-0"><span id="temp">-°C</span></div> <!-- wenn keine werte eingetragen wurden steht das standardmäsig da-->
+                        </div>
+                        <div class="col-auto"><i class="fas fa-thermometer-half fa-2x text-gray-300"></i></div>
+                    </div>
+                </div>
+            </div><!-- End: Card Primary -->
+        </div>
+        <div class="col-md-6" style="padding-top: 5px;"> <!-- das gleiche für die feuchte-->
+            <!-- Start: Card Primary  Feuchte-->
+            <div class="card shadow border-start-primary py-2">
+                <div class="card-body">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col me-2">
+                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span>Rel. Feuchte</span>
+                            </div>
+                            <div class="text-dark fw-bold h5 mb-0"><span id="hum">-%</span></div>
+                        </div>
+                        <div class="col-auto"><i class="fas fa-water fa-2x text-gray-300"></i></div>
+                    </div>
+                </div>
+            </div><!-- End: Card Primary -->
+        </div>
+    </div>
+    <div class="d-flex justify-content-center" style="padding-top: 15px;"> <!-- der button der zur seite mit der tabelle weiterleitet-->
+
+         <a class="btn btn-primary" href="{{ url_for('table') }}">Tabelle</a>  
+
+    </div>
+
+
+
+</div><!-- End: Mobile Hum -->
+
+
+
+{% endblock content %}

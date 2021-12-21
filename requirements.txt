@@ -1,0 +1,6 @@
+flask
+Flask-SQLAlchemy
+mysqlclient
+sqlalchemy-utils
+flask-wtf
+requests
